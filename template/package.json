@@ -7,7 +7,20 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
+    "prettier-check": "node_modules/.bin/prettier ./.prettierrc.js --check '{app,__tests__}/**/*.js'",
+    "prettier-run": "node_modules/.bin/prettier ./.prettierrc.js --write \"{app,__tests__}/**/*.js\"",
+    "android-dev": "ENVFILE=.env.dev react-native run-android",
+    "android-dev-win": "SET ENVFILE=.env.dev && react-native run-android",
+    "android-prod": "ENVFILE=.env.production react-native run-android",
+    "apk-prod": "cd android && ENVFILE=.env.production ./gradlew assembleRelease",
+    "apk-prod-win": "cd android && SET ENVFILE=.env.production ./gradlew assembleRelease",
+    "apk-dev": "cd android && ENVFILE=.env.dev ./gradlew assembleRelease",
+    "bundle-dev": "cd android && ENVFILE=.env.dev ./gradlew bundleRelease",
+    "bundle-prod": "cd android && ENVFILE=.env.production ./gradlew bundleRelease",
+    "ios-dev": "ENVFILE=.env.dev react-native run-ios",
+    "ios-prod": "ENVFILE=.env.production react-native run-ios"
   },
   "dependencies": {
     "react": "18.1.0",
@@ -18,13 +31,22 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "@tsconfig/react-native": "^2.0.2",
+    "@types/fbemitter": "^2.0.32",
     "@types/jest": "^26.0.23",
+    "@types/react": "^18.0.17",
     "@types/react-native": "^0.69.6",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.8.3",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.30.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.72.1",
     "react-test-renderer": "18.1.0",
@@ -39,6 +61,17 @@
       "jsx",
       "json",
       "node"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "timers": "fake",
+    "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@react-native|react-native)"
     ]
   }
 }
