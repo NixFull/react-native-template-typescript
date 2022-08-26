@@ -8,6 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "update-dev-dependencies": "yarn add -D @types/fbemitter @types/react babel-plugin-module-resolver eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-react identity-obj-proxy",
+    "update-dependencies": "yarn add ",
     "lint-fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
     "prettier-check": "node_modules/.bin/prettier ./.prettierrc.js --check '{app,__tests__}/**/*.js'",
     "prettier-run": "node_modules/.bin/prettier ./.prettierrc.js --write \"{app,__tests__}/**/*.js\"",
@@ -23,8 +25,10 @@
     "ios-prod": "ENVFILE=.env.production react-native run-ios"
   },
   "dependencies": {
+    "i18next": "^21.9.1",
     "react": "18.1.0",
-    "react-native": "0.70.0"
+    "react-native": "0.70.0",
+    "react-i18next": "^11.18.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
