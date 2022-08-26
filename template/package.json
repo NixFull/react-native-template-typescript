@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "update-dev-dependencies": "yarn add -D @types/fbemitter @types/react babel-plugin-module-resolver eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-react identity-obj-proxy",
-    "update-dependencies": "yarn add ",
+    "update-dependencies": "yarn add @react-native-async-storage/async-storage",
     "lint-fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
     "prettier-check": "node_modules/.bin/prettier ./.prettierrc.js --check '{app,__tests__}/**/*.js'",
     "prettier-run": "node_modules/.bin/prettier ./.prettierrc.js --write \"{app,__tests__}/**/*.js\"",
@@ -25,6 +25,7 @@
     "ios-prod": "ENVFILE=.env.production react-native run-ios"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.9",
     "i18next": "^21.9.1",
     "react": "18.1.0",
     "react-native": "0.70.0",
